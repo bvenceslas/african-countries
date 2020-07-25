@@ -12,10 +12,8 @@ $ cd NodeSequy
 $ npm init -y
 </code>
 
-creer ensuiteun serveur Web en installant Express
+# At least
 
-<code>
-$ npm install --save express
-</code>
-
-
+Object Relational Mapping (ORM) is a technique that maps software objects to database tables. 
+Sequelize is a popular and stable ORM tool used alongside Node.js. 
+In this article, we've discussed what ORMs are, how they work and what are some advantages of using them over writing raw queries.
