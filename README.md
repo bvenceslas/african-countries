@@ -1,4 +1,4 @@
-# NodeSequy
+# SequyLite
 template project using and sqlite3 - sequelize
 
 # How to do that?
