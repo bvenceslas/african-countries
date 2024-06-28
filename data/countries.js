@@ -1,4 +1,4 @@
-const countries = [
+export const countries = [
   {
     english: "DEMOCRATIC REPUBLIC OF CONGO",
     french: "REPUBLIQUE DEMOCRATIQUE DU CONGO",
