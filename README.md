@@ -1,19 +1,21 @@
-# SequyLite
-template project using and sqlite3 - sequelize
+# african-countries-package
 
-# How to do that?
+## Getting Started
 
-create one's repository,
-mine is called NodeSequy
+The project is public
 
-<code>
-$ mkdir NodeSequy
-$ cd NodeSequy
-$ npm init -y
-</code>
+## Built With
 
-# At least
+- Javascript
 
-Object Relational Mapping (ORM) is a technique that maps software objects to database tables. 
-Sequelize is a popular and stable ORM tool used alongside Node.js. 
-In this article, we've discussed what ORMs are, how they work and what are some advantages of using them over writing raw queries.
+## Author
+
+👤 Venceslas BURONGU
+
+- Github: @bvenceslas [@bvenceslas](https://github.com/bvenceslas)
+- Twitter: [@bvenceslas](https://twitter.com/bvenceslas)
+- Linkedin: [Venceslas Burongu](https://www.linkedin.com/in/venceslas-burongu/)
+
+## Show your support
+
+Give a ⭐️ if you like this project!

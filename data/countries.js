@@ -1,0 +1,48 @@
+const countries = [
+  {
+    english: "DEMOCRATIC REPUBLIC OF CONGO",
+    french: "REPUBLIQUE DEMOCRATIQUE DU CONGO",
+    arabic: "جمهورية الكونغو الديمقراطية",
+    portuguese: "REPÚBLICA DEMOCRÁTICA DO CONGO",
+    swahili: "JAMHURI YA KIDEMOKRASIA YA KONGO",
+    countryCode: "+243",
+    continent: "AFRICA",
+    capital: "Kinshasa",
+    currency: "Congolese franc",
+    population: 89561403,
+    area: 2344858,
+    neighboringCountries: [
+      "Angola",
+      "Burundi",
+      "Central African Republic",
+      "Republic of the Congo",
+      "Rwanda",
+      "South Sudan",
+      "Tanzania",
+      "Uganda",
+      "Zambia",
+    ],
+    acronym: "CD", // Adding the acronym
+  },
+  {
+    english: "KENYA",
+    french: "KENYA",
+    arabic: "كينيا",
+    portuguese: "QUÊNIA",
+    swahili: "KENYA",
+    countryCode: "+254",
+    continent: "AFRICA",
+    capital: "Nairobi",
+    currency: "Kenyan shilling",
+    population: 53771300,
+    area: 580367,
+    neighboringCountries: [
+      "Ethiopia",
+      "Somalia",
+      "South Sudan",
+      "Tanzania",
+      "Uganda",
+    ],
+    acronym: "KE", // Adding the acronym
+  },
+];
