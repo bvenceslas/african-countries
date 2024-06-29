@@ -80,7 +80,7 @@ async function filterCountriesByContinent(continent) {
 }
 
 // Returns a country details by country code
-async function getCountryDetails(code) {
+async function getCountryDetailsByCode(code) {
   const country = (await getCountries()).find((c) => c.countryCode === code);
   if (country) {
     return {
@@ -99,7 +99,10 @@ async function getCountryDetails(code) {
   }
 }
 
-// get the total of the african population. (NOT ACCURATE! 🙃🤷🏽‍♂️)
+/**
+ * get the total of the african population. (NOT ACCURATE! 🙃🤷🏽‍♂️)
+ * ⚠️ For Dev purpose only
+ */
 async function getTotalPopulation() {
   const countriesList = await getCountries();
   return countriesList.reduce(
@@ -108,6 +111,10 @@ async function getTotalPopulation() {
   );
 }
 
+/**
+ * get the total of the african country areas. (MAY NOT BE ACCURATE TOO! 🙃🤷🏽‍♂️)
+ * ⚠️ For Dev purpose only
+ */
 async function getTotalArea() {
   const countriesList = await getCountries();
   return countriesList.reduce((total, country) => total + country.area, 0);
@@ -119,7 +126,7 @@ module.exports = {
   getCountriesNamesAndAcronym,
   searchCountry,
   filterCountriesByContinent,
-  getCountryDetails,
+  getCountryDetailsByCode,
   getTotalPopulation,
   getTotalArea,
 };
