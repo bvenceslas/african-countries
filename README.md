@@ -25,13 +25,11 @@ const africanCountries = require('african-countries-pack');
 
 ### **1. getCountries()**
 
-Returns a Promise that resolves to an array of objects containing information about African countries.
+Returns an array of objects containing information about African countries.
 
 ```bash
-    africanCountries.getCountries()
-    .then(countries => {
-        console.log(countries);
-    })
+    const countries = await africanCountries.getCountries()
+    console.log(countries);
     .catch(error => {
         console.error('Error fetching countries:', error);
     });

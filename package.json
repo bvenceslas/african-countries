@@ -1,8 +1,8 @@
 {
-  "name": "african-countries-pack",
-  "version": "1.0.0",
+  "name": "african-countries",
+  "version": "1.0.1",
   "main": "index.js",
-  "repository": "https://github.com/bvenceslas/african-countries-package.git",
+  "repository": "https://github.com/bvenceslas/african-countries-pack.git",
   "author": "bvenceslas <bvenceslas@gmail.com>",
   "license": "MIT"
 }
