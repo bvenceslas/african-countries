@@ -3,7 +3,7 @@ const { countries } = require("./data/countries");
 // get all countries with deatils
 async function getCountries() {
   try {
-    return await Promise.resolve(countries);
+    return await countries;
   } catch (error) {
     console.error("Error fetching countries:", error);
     return [];
