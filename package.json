@@ -1,6 +1,14 @@
 {
   "name": "@bvenceslas/african-countries",
-  "description": "A lightweight npm package providing information about African countries for use in JavaScript applications.",
+  "description": "A lightweight npm package providing information about African countries.",
+  "keywords": [
+    "african countries",
+    "african countries information",
+    "geography",
+    "data",
+    "npm package",
+    "javascript"
+  ],
   "version": "1.0.1",
   "main": "index.js",
   "repository": "https://github.com/bvenceslas/african-countries.git",

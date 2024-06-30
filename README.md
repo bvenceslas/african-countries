@@ -1,17 +1,19 @@
 # African Countries Info NPM Package
 
-This package provides information about African countries. It includes functions to fetch, search, filter, and aggregate country data.
+A lightweight npm package providing information about African countries. It includes functions to fetch, search, filter, and aggregate country data.
 
 ## Installation
 
+You can install this package using npm or yarn:
+
 ```sh
-npm install african-countries-info
+npm install @bvenceslas/african-countries
 ```
 
 Or using **yarn**:
 
 ```sh
-yarn add african-countries
+yarn add @bvenceslas/african-countries
 ```
 
 ## Usage
@@ -19,6 +21,21 @@ yarn add african-countries
 Import the package in your JavaScript/TypeScript file:
 
 ```bash
+// ES6
+
+import {
+  getCountries,
+  getCountriesCount,
+  getCountriesNamesAndAcronym,
+  searchCountry,
+  filterCountriesByContinent,
+  getCountryDetailsByCode,
+  getTotalCountriesPopulation,
+  getTotalCountriesArea,
+} = from "@bvenceslas/african-countries";
+
+
+// ES5
 const {
   getCountries,
   getCountriesCount,
@@ -26,15 +43,15 @@ const {
   searchCountry,
   filterCountriesByContinent,
   getCountryDetailsByCode,
-  getTotalPopulation,
-  getTotalArea,
-} = require("african-countries-info");
+  getTotalCountriesPopulation,
+  getTotalCountriesArea,
+} = require("@bvenceslas/african-countries");
 
 console.log(getCountriesCount()); // Output: total number of countries
 
 console.log(getCountriesNamesAndAcronym("english")); // Output: sorted list of country names and acronyms in English
 
-console.log(getCountryDetailsByCode("+216")); // Output: details of the country with code +255
+console.log(getCountryDetailsByCode("+255")); // Output: details of the country with code +255
 
 ```
 
@@ -64,11 +81,11 @@ Filters countries by the specified continent and returns an array of countries.
 
 Returns detailed information about a country by its code or null if not found.
 
-### `getTotalPopulation()`
+### `getTotalCountriesPopulation()`
 
 Returns the total population of all countries.
 
-### `getTotalArea()`
+### `getTotalCountriesArea()`
 
 Returns the total area of all countries.
 
@@ -79,6 +96,12 @@ Contributions are welcome! Feel free to open issues or submit pull requests.
 ## License
 
 This package is licensed under the MIT License.
+
+The country data is sourced from the ISO (International Organization for Standardization).
+
+## Roadmap
+
+Future updates may include country flags, official language (specified), etc ..
 
 ## Author
 

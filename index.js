@@ -52,6 +52,11 @@ function getCountriesNamesAndAcronym(sortBy = "english") {
  * @returns {Array} Array of matching countries
  */
 function searchCountry(query) {
+  if (typeof query !== "string") {
+    console.error("Invalid search query:", query);
+    return [];
+  }
+
   const normalizedQuery = query.trim().toLowerCase();
   return getCountries().filter(
     (country) =>
@@ -108,7 +113,7 @@ function getCountryDetailsByCode(code) {
  * For Dev purpose only, because it may not be exact
  * @returns {number} Total population
  */
-function getTotalPopulation() {
+function getTotalCountriesPopulation() {
   return getCountries().reduce(
     (total, country) => total + country.population,
     0
@@ -120,7 +125,7 @@ function getTotalPopulation() {
  * For Dev purpose only, because it may not be exact
  * @returns {number} Total area
  */
-function getTotalArea() {
+function getTotalCountriesArea() {
   return getCountries().reduce((total, country) => total + country.area, 0);
 }
 
@@ -131,6 +136,6 @@ module.exports = {
   searchCountry,
   filterCountriesByContinent,
   getCountryDetailsByCode,
-  getTotalPopulation,
-  getTotalArea,
+  getTotalCountriesPopulation,
+  getTotalCountriesArea,
 };

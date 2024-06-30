@@ -1,4 +1,4 @@
-export const countries = [
+const countries = [
   {
     english: "ALGERIA",
     french: "ALGÉRIE",
@@ -987,3 +987,5 @@ export const countries = [
     acronym: "ZW",
   },
 ];
+
+module.exports = { countries };
