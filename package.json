@@ -1,8 +1,9 @@
 {
-  "name": "african-countries",
+  "name": "@bvenceslas/african-countries",
+  "description": "A lightweight npm package providing information about African countries for use in JavaScript applications.",
   "version": "1.0.1",
   "main": "index.js",
-  "repository": "https://github.com/bvenceslas/african-countries-pack.git",
+  "repository": "https://github.com/bvenceslas/african-countries.git",
   "author": "bvenceslas <bvenceslas@gmail.com>",
   "license": "MIT"
 }

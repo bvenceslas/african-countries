@@ -1,13 +1,17 @@
-# African Countries Pack
+# African Countries Info NPM Package
 
-A lightweight npm package providing information about African countries for use in JavaScript applications, particularly suited for React projects.
+This package provides information about African countries. It includes functions to fetch, search, filter, and aggregate country data.
 
 ## Installation
 
-Install the package using npm:
+```sh
+npm install african-countries-info
+```
 
-```bash
-npm install african-countries-pack
+Or using **yarn**:
+
+```sh
+yarn add african-countries
 ```
 
 ## Usage
@@ -15,113 +19,58 @@ npm install african-countries-pack
 Import the package in your JavaScript/TypeScript file:
 
 ```bash
-const africanCountries = require('african-countries-pack');
-// Or using ES6 import
-// import * as africanCountries from 'african-countries-pack';
+const {
+  getCountries,
+  getCountriesCount,
+  getCountriesNamesAndAcronym,
+  searchCountry,
+  filterCountriesByContinent,
+  getCountryDetailsByCode,
+  getTotalPopulation,
+  getTotalArea,
+} = require("african-countries-info");
+
+console.log(getCountriesCount()); // Output: total number of countries
+
+console.log(getCountriesNamesAndAcronym("english")); // Output: sorted list of country names and acronyms in English
+
+console.log(getCountryDetailsByCode("+216")); // Output: details of the country with code +255
 
 ```
 
 ## Functions
 
-### **1. getCountries()**
+### `getCountries()`
 
-Returns an array of objects containing information about African countries.
+Returns an array of country objects.
 
-```bash
-    const countries = await africanCountries.getCountries()
-    console.log(countries);
-    .catch(error => {
-        console.error('Error fetching countries:', error);
-    });
+### `getCountriesCount()`
 
-```
+Returns the total number of countries.
 
-### **2. getCountriesCount()**
+### `getCountriesNamesAndAcronym(sortBy)`
 
-Returns the total number of African countries.
+Returns an array of country names and acronyms sorted by the specified key (default is "english").
 
-```bash
-    africanCountries.getCountriesCount()
-  .then(count => {
-    console.log('Total countries:', count);
-  });
+### `searchCountry(query)`
 
-```
+Searches for countries by name or acronym and returns an array of matching countries.
 
-### **3. getCountriesNamesAndAcronym(sortBy)**
+### `filterCountriesByContinent(continent)`
 
-Returns an array of objects containing English name, French name, and acronym of each African country, optionally sorted by `english` (default), `french` or `acronym`.
+Filters countries by the specified continent and returns an array of countries.
 
-```bash
-    africanCountries.getCountriesNamesAndAcronym('english')
-  .then(countries => {
-    console.log('Countries sorted by English name:', countries);
-  });
+### `getCountryDetailsByCode(code)`
 
-```
+Returns detailed information about a country by its code or null if not found.
 
-### **4. searchCountry(query)**
+### `getTotalPopulation()`
 
-Searches for African countries based on a case-insensitive query string matching _English_ name, _French_ name, or _acronym_.
+Returns the total population of all countries.
 
-```bash
-    africanCountries.searchCountry('Nigeria')
-  .then(results => {
-    console.log('Search results for "Nigeria":', results);
-  });
+### `getTotalArea()`
 
-```
-
-### **5. filterCountriesByContinent(continent)**
-
-Filters African countries by continent (case-insensitive).
-
-```bash
-    africanCountries.filterCountriesByContinent('Africa')
-  .then(countries => {
-    console.log('African countries in Africa continent:', countries);
-  });
-
-```
-
-### **6. getCountryDetailsByCode(code)**
-
-Returns detailed information about a specific African country based on its ISO code, including English name, French name, acronym, continent, capital, currency, population, area, and neighboring countries.
-
-```bash
-    africanCountries.getCountryDetailsByCode('+234')
-  .then(country => {
-    console.log('Details of Nigeria:', country);
-  })
-  .catch(error => {
-    console.error('Country not found or error fetching details:', error);
-  });
-
-```
-
-### **7. getTotalPopulation()**
-
-Calculates and returns the total population of all African countries.
-
-```bash
-    africanCountries.getTotalPopulation()
-  .then(total => {
-    console.log('Total population of African countries:', total);
-  });
-
-```
-
-### **8. getTotalArea()**
-
-Calculates and returns the total area (in square kilometers) covered by all African countries.
-
-```bash
-    africanCountries.getTotalArea()
-  .then(total => {
-    console.log('Total area of African countries:', total, 'sq.km');
-  });
-
-```
+Returns the total area of all countries.
 
 ## Contributing
 

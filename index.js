@@ -1,66 +1,59 @@
 const { countries } = require("./data/countries");
 
-// get all countries with deatils
-async function getCountries() {
+/**
+ * Get all countries with details
+ * @returns {Array} Array of country objects
+ */
+function getCountries() {
   try {
-    return await countries;
+    return countries;
   } catch (error) {
     console.error("Error fetching countries:", error);
     return [];
   }
 }
 
-// get the total number of countries
-async function getCountriesCount() {
-  return (await getCountries()).length;
+/**
+ * Get the total number of countries
+ * @returns {number} Total number of countries
+ */
+function getCountriesCount() {
+  return getCountries().length;
 }
 
 /**
- * Specific function used intentionally in one of my app,
- * allows to get country names with their acronym
+ * Sort countries based on the specified key
+ * @param {Array} countriesList - List of countries
+ * @param {string} key - Key to sort by (english, french, acronym)
+ * @returns {Array} Sorted list of countries
  */
-async function getCountriesNamesAndAcronym(sortBy = "english") {
-  const countriesNamesAndAcronyms = [];
-  let sortedCountries = [];
-
-  switch (sortBy) {
-    case "english":
-      sortedCountries = (await getCountries()).sort((a, b) =>
-        a.english > b.english ? 1 : -1
-      );
-      break;
-    case "french":
-      sortedCountries = (await getCountries()).sort((a, b) =>
-        a.french > b.french ? 1 : -1
-      );
-      break;
-    case "acronym":
-      sortedCountries = (await getCountries()).sort((a, b) =>
-        a.acronym > b.acronym ? 1 : -1
-      );
-      break;
-    default:
-      sortedCountries = (await getCountries()).sort((a, b) =>
-        a.english > b.english ? 1 : -1
-      );
-  }
-
-  sortedCountries.forEach((country) => {
-    const processedCountry = {
-      en: country.english,
-      fr: country.french,
-      acronym: country.acronym,
-    };
-    countriesNamesAndAcronyms.push(processedCountry);
-  });
-
-  return countriesNamesAndAcronyms;
+function sortCountries(countriesList, key) {
+  return countriesList.sort((a, b) => (a[key] > b[key] ? 1 : -1));
 }
 
-// Return detailed information about the country
-async function searchCountry(query) {
+/**
+ * Get country names with their acronyms, sorted by the specified key
+ * @param {string} sortBy - Key to sort by (english, french, acronym)
+ * @returns {Array} Array of country names and acronyms
+ */
+function getCountriesNamesAndAcronym(sortBy = "english") {
+  const countriesList = getCountries();
+  const sortedCountries = sortCountries(countriesList, sortBy);
+  return sortedCountries.map((country) => ({
+    en: country.english,
+    fr: country.french,
+    acronym: country.acronym,
+  }));
+}
+
+/**
+ * Search for countries by name or acronym
+ * @param {string} query - Search query
+ * @returns {Array} Array of matching countries
+ */
+function searchCountry(query) {
   const normalizedQuery = query.trim().toLowerCase();
-  return (await getCountries()).filter(
+  return getCountries().filter(
     (country) =>
       country.english.toLowerCase().includes(normalizedQuery) ||
       country.french.toLowerCase().includes(normalizedQuery) ||
@@ -69,19 +62,29 @@ async function searchCountry(query) {
 }
 
 /**
- * Filter countries by continent,
- * this will be useful for coming updates
+ * Filter countries by continent
+ * @param {string} continent - Continent name
+ * @returns {Array} Array of countries in the specified continent
  */
-async function filterCountriesByContinent(continent) {
+function filterCountriesByContinent(continent) {
   const normalizedContinent = continent.trim().toLowerCase();
-  return (await getCountries()).filter(
+  return getCountries().filter(
     (country) => country.continent.toLowerCase() === normalizedContinent
   );
 }
 
-// Returns a country details by country code
-async function getCountryDetailsByCode(code) {
-  const country = (await getCountries()).find((c) => c.countryCode === code);
+/**
+ * Get country details by its code
+ * @param {string} code - Country code
+ * @returns {Object} Country details or null if not found
+ */
+function getCountryDetailsByCode(code) {
+  if (!code) {
+    console.error("No country code provided.");
+    return null;
+  }
+
+  const country = getCountries().find((c) => c.countryCode === code);
   if (country) {
     return {
       english: country.english,
@@ -95,29 +98,30 @@ async function getCountryDetailsByCode(code) {
       neighboringCountries: country.neighboringCountries,
     };
   } else {
-    throw new Error(`Country with code '${code}' not found.`);
+    console.error(`Country with code '${code}' not found.`);
+    return null;
   }
 }
 
 /**
- * get the total of the african population. (NOT ACCURATE! 🙃🤷🏽‍♂️)
- * ⚠️ For Dev purpose only
+ * Get the total population of all countries
+ * For Dev purpose only, because it may not be exact
+ * @returns {number} Total population
  */
-async function getTotalPopulation() {
-  const countriesList = await getCountries();
-  return countriesList.reduce(
+function getTotalPopulation() {
+  return getCountries().reduce(
     (total, country) => total + country.population,
     0
   );
 }
 
 /**
- * get the total of the african country areas. (MAY NOT BE ACCURATE TOO! 🙃🤷🏽‍♂️)
- * ⚠️ For Dev purpose only
+ * Get the total area of all countries
+ * For Dev purpose only, because it may not be exact
+ * @returns {number} Total area
  */
-async function getTotalArea() {
-  const countriesList = await getCountries();
-  return countriesList.reduce((total, country) => total + country.area, 0);
+function getTotalArea() {
+  return getCountries().reduce((total, country) => total + country.area, 0);
 }
 
 module.exports = {
