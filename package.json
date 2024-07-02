@@ -9,8 +9,9 @@
     "npm package",
     "javascript"
   ],
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "index.js",
+  "types": "index.d.ts",
   "repository": "https://github.com/bvenceslas/african-countries.git",
   "author": "bvenceslas <bvenceslas@gmail.com>",
   "license": "MIT"
